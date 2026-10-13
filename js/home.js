@@ -39,8 +39,21 @@ function buildOverlayButton(game) {
   if (game.premium) {
     pill.classList.add("game-card__overlay-btn--premium");
 
+    // "Comprar" con una corona adelante, para reforzar que es un juego pago
     const label = document.createElement("span");
-    label.textContent = "Comprar";
+    label.className = "game-card__btn-label";
+    const crown = document.createElementNS(SVG_NS, "svg");
+    crown.setAttribute("viewBox", "0 0 24 24");
+    crown.setAttribute("width", "16");
+    crown.setAttribute("height", "16");
+    crown.setAttribute("fill", "currentColor");
+    crown.setAttribute("aria-hidden", "true");
+    crown.classList.add("game-card__btn-crown");
+    const crownPath = document.createElementNS(SVG_NS, "path");
+    crownPath.setAttribute("d", "M2 8l4 3 6-7 6 7 4-3-2 11H4z");
+    crown.appendChild(crownPath);
+    label.appendChild(crown);
+    label.appendChild(document.createTextNode("Comprar"));
     pill.appendChild(label);
 
     const price = document.createElement("span");

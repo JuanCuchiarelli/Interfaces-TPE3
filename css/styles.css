@@ -433,7 +433,21 @@ body {
   transform: translateY(0);
   opacity: 1;
 }
-.game-card__overlay-btn--premium { justify-content: space-between; }
+/* Botón de juegos pagos: dorado (acento del Design System) para que se
+   distinga del "Jugar ahora" de los juegos gratis */
+.game-card__overlay-btn--premium {
+  justify-content: space-between;
+  background: var(--color-accent);
+  color: var(--color-primary-500);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(247, 185, 40, 0.45);
+}
+.game-card__overlay-btn--premium .game-card__price-icon {
+  background: var(--color-primary-500);
+  color: var(--color-accent);
+}
+.game-card__btn-label { display: flex; align-items: center; gap: 0.4rem; }
+.game-card__btn-crown { flex-shrink: 0; }
 
 .game-card__price { display: flex; align-items: center; gap: 0.3rem; }
 .game-card__price-icon {
